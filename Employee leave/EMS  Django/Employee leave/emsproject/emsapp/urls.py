@@ -10,6 +10,7 @@ urlpatterns = [
     path('login1/', views.login1, name='login1'),
     path('privacy-and-policy/', views.privacy_and_policy, name='privacy_and_policy'),
     path('profile/', views.profile, name='profile'),
-    path('signup/', views.signup, name='signup'),
+    # path('signup/', views.signup, name='signup'),
+    path('register/', views.register, name='register'),
     path('terms-and-conditions/', views.terms_and_conditions, name='terms_and_conditions'),
 ]

@@ -4,36 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Login Page</title>
+    <title>Login Page</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="../static/styles/sign_up.css">
-    <link rel="shortcut icon" href="../static/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/styles/login.css">
+    <link rel="shortcut icon" href="" type="image/x-icon">
 </head>
 <body>
 
-
-    <div class="container">
-        <div class="design">
-            <div class="pill-1 rotate-45"></div>
-            <div class="pill-2 rotate-45"></div>
-            <div class="pill-3 rotate-45"></div>
-            <div class="pill-4 rotate-45"></div>
+    {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+                <div class="flash-message {{ 'flash-message-'|add:category }}">{{ message }}</div>
+            {% endfor %}
         </div>
+    {% endif %}
 
-        <form class="login" action="{% url 'login' %}" method="POST">
-            <h3 class="title">User Login</h3>
+    <div class="login-container">
+        <form class="login-form" action="{% url 'login' %}" method="POST">
+            <h3 class="login-title">User Login</h3>
 
-            <div class="text-input">
+            <div class="form-group">
                 <i class="ri-user-fill"></i>
                 <input type="email" id="email" name="email" placeholder="Email" required>
             </div>
-            <div class="text-input">
+            
+            <div class="form-group">
                 <i class="ri-lock-fill"></i>
                 <input type="password" placeholder="Password" id="password" name="password" required>
             </div>
-            <div class="text-input">
+            
+            <div class="form-group">
                 <i class="ri-user-fill"></i>
-                <label for="role"></label>
                 <select name="role" id="role" class="form-control" required>
                     <option value="">Choose Role</option>
                     <option value="user">Employee</option>
@@ -43,13 +44,16 @@
 
             <input type="submit" value="Login" class="login-btn" name="submit">
 
-            <div><a href="#" class="forgot">Forgot Username/Password?</a></div>
-            <br><br><br>
-            <div class="create">
-                <a href="{% url 'signup' %}">Create Your Account</a>
+            <div class="forgot-password">
+                <a href="#" class="forgot-link">Forgot Username/Password?</a>
+            </div>
+
+            <div class="signup">
+                <a href="{% url 'signup' %}" class="signup-link">Create Your Account</a>
                 <i class="ri-arrow-right-fill"></i>
             </div>
         </form>
     </div>
+
 </body>
 </html>
