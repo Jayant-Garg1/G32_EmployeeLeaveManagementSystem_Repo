@@ -13,9 +13,9 @@
     <header>
         <div class="nav">
             <p class="logo">Levo</p>
-            <a href="" class="about-us">About us</a>
-            <a href="" class="employee-portal">Employee Portal</a>
-            <a href="" class="admin-portal">Admin Portal</a>
+            <a href="{% url 'about_us' %}" class="about-us">About us</a>
+            <a href="{% url 'register' %}" class="employee-portal">Employee Portal</a>
+            <a href="{% url 'login' %}" class="admin-portal">Admin Portal</a>
             <a href="#ref_feedback" class="feedback">Feedback</a>
             <!-- <a href="" ><button class="log-in btn btn-outline-primary">Log in</button></a> -->
             <!-- <a href=""><button class="register btn btn-primary">Register</button></a> -->
@@ -134,7 +134,7 @@
     <input type="checkbox" name="Terms" id="Terms" style="margin-left: 10%;margin-top: 2%;">
     <p style="font-size: large;font-weight: 500;color: rgb(141, 203, 112);margin-top: -1.3%;margin-left: 11.5%;">I accept the Terms</p>
     <button class="btn btn-primary" style="margin-left: 47%;width: 100px;block-size: 50px;margin-bottom: 1%;">Submit</button>
-    <p style="margin-left: 10%;font-size: medium;margin-bottom: 5%;">By submitting, you agree to our <a href="" style="text-decoration: none;">Terms and Conditions</a> and <a style="text-decoration: none;" href="">Privacy Policy</a>.</p>
+    <p style="margin-left: 10%;font-size: medium;margin-bottom: 5%;">By submitting, you agree to our <a href="{% url 'terms_and_conditions' %}" style="text-decoration: none;">Terms and Conditions</a> and <a style="text-decoration: none;" href="{% url 'privacy_and_policy' %}">Privacy Policy</a>.</p>
 
 </div>
 <footer>
@@ -142,7 +142,7 @@
         <div class="c1">
         <h2>Company</h2>
         <br>
-        <a href="" class="bottom-aboutus">About us</a>
+        <a href="{% url 'about_us' %}" class="bottom-aboutus">About us</a>
         <br><br>
         <a href="#ref_feedback" class="bottom-feedback">Feedback</a>
         </div>
@@ -150,13 +150,13 @@
         <div class="c2">
         <h2>Employee</h2>
         <br>
-        <a href="" class="bottom-employee-portal">Employee Portal</a>
+        <a href="{% url 'register' %}" class="bottom-employee-portal">Employee Portal</a>
         </div>
         
         <div class="c3">
         <h2>Admin</h2>
         <br>
-        <a href="" class="bottom-admin-portal">Admin Portal</a>
+        <a href="{% url 'login' %}" class="bottom-admin-portal">Admin Portal</a>
         </div>
 
         <div class="c4">
@@ -171,8 +171,8 @@
 
         <div class="bottom2">
         <p class="bottom-logo">© 2025 Levo. All rights reserved.</p>
-        <a href="" style="margin-left: 12%;" class="bottom-terms">Terms and Conditions</a>
-        <a href="" style="margin-left: 1%;" class="bottom-privacy">Privacy Policy</a>
+        <a href="{% url 'terms_and_conditions' %}" style="margin-left: 12%;" class="bottom-terms">Terms and Conditions</a>
+        <a href="{% url 'privacy_and_policy' %}" style="margin-left: 1%;" class="bottom-privacy">Privacy Policy</a>
         </div>
         
     </footer>
