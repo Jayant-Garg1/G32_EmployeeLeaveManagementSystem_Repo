@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-3xl mx-auto p-6">
+  <h1 class="text-2xl font-bold mb-4 text-indigo-800">
+    Registrations for "{{ event.title }}"
+  </h1>
+
+  {% if registrations %}
+    <ul class="list-disc pl-6 space-y-2">
+      {% for reg in registrations %}
+        <li class="text-gray-800">
+          {{ reg.employee.full_name }} ({{ reg.employee.employee_id }})
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="text-gray-500">No one has registered for this event yet.</p>
+  {% endif %}
+</div>
+{% endblock %}

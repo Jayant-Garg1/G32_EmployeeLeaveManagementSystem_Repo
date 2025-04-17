@@ -1,0 +1,113 @@
+{% block title_block %}Privacy Policy - Levo{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Levo</title>
+    <link rel="stylesheet" href="../static/styles/home_page.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <p class="logo">Levo</p>
+            <a href="{% url 'about_us' %}" class="about-us">About us</a>
+            <a href="{% url 'employee_portal' %}" class="employee-portal">Employee Portal</a>
+            <a href="{% url 'admin_portal' %}" class="admin-portal">Admin Portal</a>
+            <a href="{% url 'home_page' %}" class="feedback">Feedback</a>
+        </div>
+    </header>
+    
+    <main>
+        <div class="information1" style="margin-left: -13%;">
+            <h1 class="heading" style="margin-left: 30%;margin-top: 10%;">Levo Privacy Policy</h1>
+            <p class="para" style="margin-left: 14%;margin-top: 5%;margin-right: -45%;">
+                At Levo, we respect and protect your privacy. This Privacy Policy outlines how we collect, use, and safeguard your information when you use our Leave Management System. By using Levo, you agree to the collection and use of information as outlined in this policy.
+            </p>
+        </div>
+
+        <div class="top-div" style="margin-top: -10%;">
+            <img src="../static/images/second.jpg" style="width: 40%;" class="top-img2" alt="">
+            <div class="top-div2">
+                <h1 style="font-size: 50px; font-weight: 650;">Information We Collect</h1>
+                <p style="margin-top: 6%;" class="para2">Levo collects personal information from employees and administrators, including:</p>
+                <ul class="para2">
+                    <li>Full name</li>
+                    <li>Email address</li>
+                    <li>Employee ID</li>
+                    <li>Leave request details (e.g., dates, type of leave)</li>
+                    <li>IP address and device information</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="top-div">
+            <img src="../static/images/images3.jpg" style="width: 40%;" class="top-img2" alt="">
+            <div class="top-div2">
+                <h1 style="font-size: 50px; font-weight: 650;">Data Security</h1>
+                <p style="margin-top: 6%;" class="para2">
+                    We take your privacy seriously. We employ industry-standard security measures to protect your personal information from unauthorized access, alteration, or disclosure. These measures include:
+                </p>
+                <ul class="para2">
+                    <li>Encryption of sensitive data</li>
+                    <li>Secure login authentication</li>
+                    <li>Regular security audits</li>
+                    <li>Role-based access control</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="top-div">
+            <div class="top-div2">
+                <h1 style="font-size: 50px; font-weight: 650;">Sharing of Your Information</h1>
+                <p style="margin-top: 6%;" class="para2">
+                    Levo does not sell or rent your personal information to third parties. We may share your data in the following circumstances:
+                </p>
+                <ul class="para2">
+                    <li>If required by law or to comply with legal processes</li>
+                    <li>If necessary to protect the rights, property, or safety of Levo, its users, or the public</li>
+                    <li>With third-party service providers that help us operate our system (e.g., payment processors, analytics providers)</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="bottom1">
+            <div class="c1">
+                <h2>Company</h2>
+                <br>
+                <a href="{% url 'about_us' %}" class="bottom-aboutus">About us</a>
+                <br><br>
+                <a href="{% url 'profile' %}" class="bottom-feedback">Feedback</a>
+            </div>
+            <div class="c2">
+                <h2>Employee</h2>
+                <br>
+                <a href="{% url 'employee_portal' %}" class="bottom-employee-portal">Employee Portal</a>
+            </div>
+            <div class="c3">
+                <h2>Admin</h2>
+                <br>
+                <a href="{% url 'admin_portal' %}" class="bottom-admin-portal">Admin Portal</a>
+            </div>
+            <div class="c4">
+                <h2>Subscribe To Updates</h2>
+                <p>Stay informed with the latest updates from Levo.</p>
+                <p style="margin-top: -4%;">Enter your email to subscribe.</p>
+                <input class="input-email" type="email" placeholder="Enter your Email">
+                <button class="btn btn-primary subscribe " style="margin-top: -12.2%;margin-left: 70%;">Subscribe</button>
+            </div>  
+        </div>
+
+        <div class="bottom2">
+            <p class="bottom-logo">© 2025 Levo. All rights reserved.</p>
+            <a href="{% url 'terms_and_conditions' %}" class="bottom-terms" style="margin-left: 15%;">Terms and Conditions</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

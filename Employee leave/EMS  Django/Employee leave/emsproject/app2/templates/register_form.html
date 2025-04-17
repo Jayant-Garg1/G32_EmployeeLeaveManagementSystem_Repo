@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-xl mx-auto p-6 bg-white shadow rounded">
+  <h2 class="text-2xl font-bold mb-4 text-indigo-700">Register for {{ event.title }}</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <label class="block mb-2 font-semibold">Enter Your Employee ID:</label>
+    <input type="text" name="employee_id" class="w-full border rounded px-3 py-2 mb-4" required>
+
+    <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+      Submit Registration
+    </button>
+  </form>
+</div>
+{% endblock %}

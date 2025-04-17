@@ -1,0 +1,122 @@
+/* General Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #fefeff, #353536); /* Gradient background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Card Container Styles */
+.card {
+    background: rgba(255, 255, 255, 0.95); /* Light card background */
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* Softer shadow with depth */
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Login Title */
+h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2575fc;
+    letter-spacing: 1px;
+}
+
+/* Input Fields Styling */
+.custom-input {
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    background-color: #f8f9fa;
+    border: 2px solid #ddd;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-input:focus {
+    outline: none;
+    border-color: #2575fc;
+    box-shadow: 0 0 10px rgba(37, 117, 252, 0.3);
+    background-color: #fff;
+}
+
+/* Button Styling */
+.custom-btn {
+    background-color: #2575fc;
+    color: #fff;
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-btn:hover {
+    background-color: #0044cc;
+    transform: translateY(-2px);
+}
+
+/* Flash Message Animation */
+.fade-in-up {
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Text Links */
+a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0044cc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        padding: 30px;
+        max-width: 350px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 20px;
+        max-width: 280px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .custom-input {
+        padding: 12px;
+    }
+
+    .custom-btn {
+        padding: 12px;
+    }
+}
