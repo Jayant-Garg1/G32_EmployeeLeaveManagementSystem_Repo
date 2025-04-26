@@ -16,7 +16,7 @@ urlpatterns = [
     # path('signup/', views.signup, name='signup'),
     path('register/', views.register, name='register'),
     path('terms-and-conditions/', views.terms_and_conditions, name='terms_and_conditions'),
-    path('update-profile/', ProfileUpdateView.as_view(), name='update_profile'),  # Update Profile page
+    path('update-profile/', ProfileUpdateView.as_view(), name='update_profile'),  
     path('approve_leave/<int:leave_id>/', views.approve_leave, name='approve_leave'),
     path('reject_leave/<int:leave_id>/', views.reject_leave, name='reject_leave'),
     path('edit-leave/<int:leave_id>/', views.edit_leave, name='edit_leave'),
@@ -24,6 +24,4 @@ urlpatterns = [
     path('submit-feedback/', views.submit_feedback, name='submit_feedback'),
     path('feedback/', views.show_feedback, name='feedback_list'),
     path('logout/', views.logout_view, name='logout'),
-
-
 ]

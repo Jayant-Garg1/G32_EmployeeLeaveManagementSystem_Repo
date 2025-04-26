@@ -18,13 +18,13 @@ class LeaveRequest(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    sick_leave_balance = models.IntegerField(default=10)  # Default sick leaves
-    personal_leave_balance = models.IntegerField(default=5)  # Default personal leaves
+    sick_leave_balance = models.IntegerField(default=10) 
+    personal_leave_balance = models.IntegerField(default=5)
     vacation_leave_balance = models.IntegerField(default=5)
-    email = models.EmailField(default="example@example.com")  # Add this line for a default value
+    email = models.EmailField(default="example@example.com")
     dob = models.DateField(null=True, blank=True)
-    mobile_number = models.CharField(max_length=15, null=False, default="Not provided")  # Define a default value here
-    address = models.CharField(max_length=255, null=False, default="No address provided")  # Define a default value here
+    mobile_number = models.CharField(max_length=15, null=False, default="Not provided")  
+    address = models.CharField(max_length=255, null=False, default="No address provided")  
     father_name = models.CharField(max_length=255, null=False, default="Unknown")
     mother_name = models.CharField(max_length=255, null=False, default="Unknown")
 

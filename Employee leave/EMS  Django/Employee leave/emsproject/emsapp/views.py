@@ -12,12 +12,11 @@ from django.views.generic import TemplateView, UpdateView
 from datetime import datetime
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
-from .models import Feedback  # ✅ Import the Feedback model
+from .models import Feedback 
 from django.contrib.auth import logout
 
 
 
-# Home and Static Pages
 def home_page(request):
     return render(request, "home_page.html")
 
@@ -32,7 +31,6 @@ def terms_and_conditions(request):
 
 
 
-# User Registration
 def register(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -62,7 +60,6 @@ def register(request):
     return render(request, 'register.html')
 
 
-# Login View
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -72,7 +69,6 @@ def login(request):
         if user:
             auth_login(request, user)
 
-    # Ensure the Profile is created right after login
             Profile.objects.get_or_create(user=user)
 
             if user.is_staff:
@@ -85,7 +81,6 @@ def login(request):
     return render(request, 'login.html')
 
 
-# Employee Portal
 @login_required
 def employee_portal(request):
     if request.method == 'POST':
@@ -93,10 +88,8 @@ def employee_portal(request):
         start_date = request.POST.get('start_date')
         end_date = request.POST.get('end_date')
 
-        # Safely get or create the profile
         profile, created = Profile.objects.get_or_create(user=request.user)
 
-        # Check if the employee has enough leave balance
         if leave_type == 'Sick Leave' and profile.sick_leave_balance <= 0:
             messages.error(request, 'Insufficient sick leave balance.')
             return redirect('employee_portal')
@@ -152,13 +145,11 @@ class EmployeePortalView(TemplateView):
     template_name = 'employee_portal.html'
 
 
-# Profile
 @login_required
 def profile(request):
     user = request.user
     profile, created = Profile.objects.get_or_create(user=user)
 
-    # Determine where to redirect after saving
     next_page = request.GET.get('next') or request.POST.get('next') or 'employee_portal'
 
     if request.method == 'POST':
@@ -169,7 +160,7 @@ def profile(request):
         try:
             if dob_str:
                 dob = datetime.strptime(dob_str, '%Y-%m-%d').date()
-                if dob != datetime(1900, 1, 1).date():  # Avoid default DOB unless intentional
+                if dob != datetime(1900, 1, 1).date():  
                     profile.dob = dob
         except ValueError:
             messages.error(request, 'Invalid date format for DOB.')
@@ -187,7 +178,6 @@ def profile(request):
     return render(request, 'profile.html', {'profile': profile, 'next_page': next_page})
 
 
-# Profile Update Class View
 class ProfileUpdateView(UpdateView):
     model = Profile
     fields = ['father_name', 'dob', 'mobile_number', 'address', 'email']
@@ -199,12 +189,10 @@ class ProfileUpdateView(UpdateView):
         return super().form_valid(form)
 
 
-# views.py
 
 @user_passes_test(lambda u: u.is_staff)
 def admin_portal(request):
-    search_query = request.GET.get('search', '')  # Get the search query
-
+    search_query = request.GET.get('search', '') 
     if search_query:
         leave_requests = LeaveRequest.objects.filter(
             Q(user__first_name__icontains=search_query) | Q(user__last_name__icontains=search_query)
@@ -214,7 +202,7 @@ def admin_portal(request):
 
     return render(request, "admin_portal.html", {
         'leave_requests': leave_requests,
-        'search_query': search_query  # Pass search query to template
+        'search_query': search_query 
     })
 
 
@@ -261,7 +249,6 @@ def edit_leave(request, leave_id):
                 messages.error(request, "End date cannot be before start date.")
                 return redirect('edit_leave', leave_id=leave.id)
 
-            # Save the validated data
             leave.leave_type = leave_type
             leave.start_date = start_date_obj
             leave.end_date = end_date_obj
@@ -279,9 +266,7 @@ def edit_leave(request, leave_id):
 def delete_leave(request, leave_id):
     leave = get_object_or_404(LeaveRequest, id=leave_id, user=request.user)
 
-    # Only allow deletion of 'Pending' requests
     if leave.status == 'Pending':
-        # Update the leave balance
         profile = Profile.objects.get(user=request.user)
 
         if leave.leave_type == 'Sick Leave':
@@ -291,10 +276,8 @@ def delete_leave(request, leave_id):
         elif leave.leave_type == 'Vacation':
             profile.vacation_leave_balance += 1
 
-        # Save the updated profile
         profile.save()
 
-        # Delete the leave request
         leave.delete()
         messages.success(request, "Leave request deleted and balance updated.")
     else:
@@ -314,7 +297,6 @@ def submit_feedback(request):
             messages.error(request, "You must accept the terms.")
             return redirect('home_page')
 
-        # ✅ Save the feedback to the database
         Feedback.objects.create(name=name, email=email, message=message_text)
 
         messages.success(request, "Thanks for your feedback!")
@@ -325,7 +307,7 @@ def submit_feedback(request):
 
 
 def show_feedback(request):
-    feedback_list = Feedback.objects.all()  # Fetch all feedback from the database
+    feedback_list = Feedback.objects.all()
     return render(request, 'feedback_list.html', {'feedback_list': feedback_list})
 
 
