@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles/login.css">
+    <link rel="shortcut icon" href="../static/favicon.png" type="image/x-icon">
+</head>
+<body>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash-message {{ 'flash-message-' + category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class="login-container">
+        <form class="login-form" action="{{url_for('login')}}" method="POST">
+            <h3 class="login-title">User Login</h3>
+
+            <div class="form-group">
+                <i class="ri-user-fill"></i>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            
+            <div class="form-group">
+                <i class="ri-lock-fill"></i>
+                <input type="password" placeholder="Password" id="password" name="password" required>
+            </div>
+            
+            <div class="form-group">
+                <i class="ri-user-fill"></i>
+                <select name="role" id="role" class="form-control" required>
+                    <option value="">Choose Role</option>
+                    <option value="user">Employee</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+
+            <input type="submit" value="Login" class="login-btn" name="submit">
+
+            <div class="forgot-password">
+                <a href="#" class="forgot-link">Forgot Username/Password?</a>
+            </div>
+
+            <div class="signup">
+                <a href="{{url_for('signup')}}" class="signup-link">Create Your Account</a>
+                <i class="ri-arrow-right-fill"></i>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

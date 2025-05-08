@@ -1,0 +1,206 @@
+{% block title_block %}{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Levo</title>
+    <link rel="stylesheet" href="../static/styles/home_page.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            background-color: white;
+        }
+
+        .nav {
+            margin: 10px;
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            justify-content: space-around;
+            height: 10vh;
+            border-bottom: 1px solid;
+            width: 100%;
+        }
+
+        .logo {
+            margin-left: 20px;
+            font-size: 45px;
+            position: fixed;
+            left:3%;
+            font-family: Brush Script MT, cursive;
+            font-style: italic;
+        }
+
+        .admin-portal {
+            margin-top: 20px;
+            color: black;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .admin-container {
+            margin-top: 100px;
+            padding: 20px;
+        }
+
+        .admin-header {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .leave-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        .leave-table th, .leave-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .leave-table th {
+            background-color: #f2f2f2;
+        }
+
+        .btn-approve, .btn-reject {
+            width: 100px;
+        }
+
+        footer {
+            background-color: rgb(50, 51, 51);
+            padding-top: 4%;
+            padding-left: 4%;
+            color: white;
+        }
+
+        .bottom1 {
+            display: flex;
+            justify-content: space-around;
+            padding-bottom: 2%;
+        }
+
+        .bottom2 {
+            padding-top: 2%;
+            padding-bottom: 3%;
+            display: flex;
+        }
+
+        .bottom-logo {
+            margin-left: 1.4%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <header>
+            <div class="nav">
+                <p class="logo">Levo</p>
+                <div class="nav-links">
+                    
+                    <a href="{{ url_for('logout') }}" style="font-size: large;text-decoration: none;margin-top: 10%;position: relative;left: 90%;margin-left: 550%;" class="nav-link">Logout</a>
+                </div>
+            </div>
+        </header>
+        
+    </header>
+
+    <main>
+        <div class="admin-container">
+            <h1 class="admin-header">Admin Portal: Manage Leave Requests</h1>
+            
+            <div class="table-responsive" style="background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <table class="table table-hover text-center">
+                    <thead style="background-color: #4CAF50; color: white;">
+                        <tr>
+                            <th style="vertical-align: middle;">Employee Name</th>
+                            <th style="vertical-align: middle;">Leave Type</th>
+                            <th style="vertical-align: middle;">Start Date</th>
+                            <th style="vertical-align: middle;">End Date</th>
+                            <th style="vertical-align: middle;">Status</th>
+                            <th style="vertical-align: middle;">User's Leave Balance</th>
+                            <th style="vertical-align: middle;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for leave in leave_requests %}
+                        <tr>
+                            <td style="vertical-align: middle;">{{ leave.user.first_name }} {{ leave.user.last_name }}</td>
+                            <td style="vertical-align: middle;">{{ leave.leave_type }}</td>
+                            <td style="vertical-align: middle;">{{ leave.start_date }}</td>
+                            <td style="vertical-align: middle;">{{ leave.end_date }}</td>
+                            <td style="vertical-align: middle;">
+                                {% if leave.status == 'Approved' %}
+                                    <span class="badge bg-success">{{ leave.status }}</span>
+                                {% elif leave.status == 'Rejected' %}
+                                    <span class="badge bg-danger">{{ leave.status }}</span>
+                                {% else %}
+                                    <span class="badge bg-warning text-dark">{{ leave.status }}</span>
+                                {% endif %}
+                            </td>
+                            <td style="vertical-align: middle;">
+                                {% if leave.leave_type == 'Sick Leave' %}
+                                    Sick Leave Balance: {{ leave.user.profile.sick_leave_balance }} days
+                                {% elif leave.leave_type == 'Personal Leave' %}
+                                    Personal Leave Balance: {{ leave.user.profile.personal_leave_balance }} days
+                                {% elif leave.leave_type == 'Vacation' %}
+                                    Vacation Leave Balance: {{ leave.user.profile.vacation_leave_balance }} days
+                                {% endif %}
+                            </td>
+                            <td style="vertical-align: middle;">
+                                <a href="{% url 'approve_leave' leave.id %}" class="btn btn-success btn-sm">Approve</a>
+                                <a href="{% url 'reject_leave' leave.id %}" class="btn btn-danger btn-sm">Reject</a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="7" style="text-align: center;">No leave requests found.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer>
+        <div class="bottom1">
+            <div class="c1">
+                <h2>Company</h2>
+                <br>
+                <a href="{{url_for('aboutus')}}" class="bottom-aboutus">About us</a>
+                <br><br>
+                <a href="#ref_feedback" class="bottom-feedback">Feedback</a>
+            </div>
+            <div class="c4">
+                <h2>Subscribe To Updates</h2>
+                <p>Stay informed with the latest updates from LeaveTrack.</p>
+                <input class="input-email" type="email" placeholder="Enter your Email">
+                <button class="btn btn-primary subscribe">Subscribe</button>
+            </div>  
+        </div>
+
+        <div class="bottom2">
+            <p class="bottom-logo">© 2025 Levo. All rights reserved.</p>
+            <a href="{{url_for('termsandconditions')}}" class="bottom-terms">Terms and Conditions</a>
+            <a href="{{url_for('privacyandpolicy')}}" class="bottom-privacy">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

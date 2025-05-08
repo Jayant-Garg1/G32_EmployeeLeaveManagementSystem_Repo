@@ -1,0 +1,188 @@
+{% block title_block %}Levo{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Levo</title>
+    <link rel="stylesheet" href="../static/styles/home_page.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <p class="logo">Levo</p>
+            <a href="{{url_for('aboutus')}}" class="about-us">About us</a>
+            <a href="{{url_for('signup')}}" class="employee-portal">Employee Portal</a>
+            <a href="{{url_for('login')}}" class="admin-portal">Admin Portal</a>
+            <a href="#ref_feedback" class="feedback">Feedback</a>
+            
+            
+        </div>
+    </header>
+    <main>
+        <div class="information1">
+            <div class="content">
+                <div style="top: -220px;font-size: 50px;font-weight: 800;" class="headline">Streamline</div>
+                <div style="top: -170px;font-size: 50px;font-weight: 800;" class="leave-management">Leave Management with</div>
+                <div style="top: -115px;font-size: 50px;font-weight: 800;" class="ease">Ease</div>
+                <div class="para">Levo offers a seamless solution for managing employee leaves. With an intuitive interface, employees can easily request and track their leave, administrators efficiently manage records and reports.</div>
+            </div>
+        </div>
+        
+        <img src="../static/images/first.jpg" alt="" class="top-img1">
+
+
+        <div class="top-div">
+            <img src="../static/images/Second.jpg" style="width: 40%;" class="top-img2" alt="">
+            <div class="top-div2">
+            <h1 style="font-size: 50px; font-weight: 650;">Discover Levo's Mission</h1>
+            <p style="margin-top: 6%;" class="para2">At Levo, we aim to revolutionize employee leave management by providing a user-friendly platform that simplifies the process for both employees and administrators. Our commitment to security and continuous improvement ensures a reliable experience. </p>
+            <div class="sub-para1">
+                <h1>2025 years</h1>
+                <h1 style="margin-left: 20%;">500 Clients</h1>
+            </div>
+            <div class="sub-para2">
+                <p style="font-size: large; ">Since our inception, we have focused on enhancing the employee experience.</p>
+                <p style="margin-left: 15%; font-size: large;">We have successfully partnered with numerous organizations to streamline their leave management processes.</p>
+            </div>
+            </div>
+        </div>
+        <div class="middle">
+            <h1 style="margin-left: 40%; font-size: 50px; font-weight: 700;">How It Works</h1>
+            <p style="margin-left: 20%; font-size: 20px; margin-bottom: 4%;">Discover the simple steps to efficiently manage your leave with LeaveTrack. Follow the guide below to get started.</p>
+            
+            <p class="mid-para">&#x2705; Step 1: Log in to your LeaveTrack account using your secure credentials.</p>
+            <p class="mid-para">&#x2705; Step 2: Navigate to the 'Request Leave' section to submit a new leave request.</p>
+            <p class="mid-para">&#x2705; Step 3: View your leave history to track past and upcoming leaves.</p>
+            <p class="mid-para">&#x2705; Step 4: Receive notifications on the status of your leave requests.</p>
+            <p class="mid-para">&#x2705; Step 5: Provide feedback to help us improve your experience.</p>
+
+        </div>
+        <div class="mid-features">
+            <div class="mid-features10">
+            <p style="font-size: 40px;font-weight: 700;">Explore Our Employee </p>
+            <p style="font-size: 40px;font-weight: 700;margin-top: -5%;">Features</p>
+            </div>
+
+            <div class="mid-features20">
+            <p style="font-size: 20px;">Our system empowers employees with seamless leave tracking and </p>
+            <p style="font-size: 20px;margin-top: -3%;">management. Access your leave history, request time off, and stay</p>
+            <p style="font-size: 20px;margin-top: -3%;">informed with real-time updates, all in one user-friendly platform.</p>
+
+            <div class="mid-features21">
+                <p style="font-size: 30px; font-weight: 700;">Leave Tracking</p>
+                <p style="font-size: 30px; font-weight: 700; ">Request Management</p>
+            </div>
+            <div class="mid-features22">
+            <p style="font-size: 15px;">Monitor your leave balance and history <br> effortlessly with our intuitive interface.</p>
+            <p style="font-size: 15px;margin-left: 5%;">Easily submit and manage leave requests <br> with just a few clicks.</p>
+        </div>
+    </div>
+    
+</main>
+<div class="bottom-main">
+    <div class="images-container">
+        <div class="images">
+            <img src="../static/images/images1.jpg" class="mid-images" alt="">
+            <img src="../static/images/images2.jpg" class="mid-images" alt="">
+            <img src="../static/images/images3.jpg" class="mid-images" alt="">
+            <img src="../static/images/images4.jpg" class="mid-images" alt="">
+        </div>
+        
+        <div class="descriptions">
+            <p style="margin-left: 2%;">Efficient Leave <br> Management</p>
+            <p style="margin-left: 8%;">Comprehensive <br> Reporting Tools</p>
+            <p style="margin-left: 5%;">Secure Access Control</p>
+            <p style="margin-right: 4.2%;">Real-Time Notifications</p>
+        </div>
+        <div class="descriptions2">
+            <p style="margin-left: 1%; margin-right: 77%; color: white;font-size: medium;">Administrators can easily manage employee leave requests, ensuring a smooth workflow and reducing manual errors.</p>
+        </div>
+        <div class="descriptions3">
+            <p style="color: white; font-size: medium;margin-top: -6.1%;margin-left: 25.4%;margin-right: 51%;">Generate detailed reports to gain insights into leave patterns and make informed decisions for workforce planning.</p>
+        </div>
+        <div class="descriptions4">
+            <p style="color: white;font-size: medium;margin-top: -8.2%;margin-left: 50%;margin-right: 29%;">Ensure that only authorized personnel can access sensitive information, maintaining data privacy and security.</p>
+        </div>
+        <div class="descriptions5">
+            <p style="color: white;font-size: medium;margin-top: -6.1%;margin-left: 73.1%;margin-right: 2%;">Receive instant notifications for pending leave requests, allowing for timely approvals and efficient management.</p>
+        </div>
+    </div>
+
+    <p style="font-size: 50px;font-weight: 650;margin-left: 30.5%;margin-top: 5%;">Robust Security Measures</p>
+    <p style="font-size: large;font-weight: 400;margin-left: 12%;">At LeaveTrack, we prioritize the security of your data. Our system is equipped with advanced security protocols to ensure that your information</p>
+    <p style="font-size: large;font-weight: 400;margin-top: -1%; margin-left: 42%;">remains safe and confidential.</p>
+    <p class="text-robust" style="margin-top: 4%;"> Data Encryption: All sensitive data is encrypted to prevent unauthorized access.</p>
+    <p class="text-robust">Secure Login: Multi-factor authentication ensures only authorized personnel can access the system.</p>
+    <p class="text-robust">Regular Audits: We conduct regular security audits to identify and mitigate potential vulnerabilities.</p>
+    <p class="text-robust">Access Control: Role-based access control to limit data access based on user roles.</p>
+    <p style="font-size: 50px;font-weight: 650;margin-left: 30.5%;margin-top: 10%;">We Value Your Feedback </p>
+    <p style="margin-left: 18%;font-size: 22px;"id="ref_feedback">Your insights help us improve the LeaveTrack system. Please share your thoughts and suggestions.</p>
+    <p style="margin-top: 5%;margin-left: 10%;font-size: 50px;font-weight: 650;">Employee Feedback Form </p>
+<p style="margin-left: 10%;font-size: 22px;margin-top: -1%;">Please fill out the form below to provide your feedback.</p>
+<form method="POST" action="{{ url_for('submit_feedback') }}">
+    <p style="margin-left: 10%;font-size: 24px;color: rgb(141, 203, 112);">Name</p>
+    <input type="text" name="name" placeholder="   Enter Your Name" required style="margin-left: 10%;width: 80%;outline:none;border-radius: 5px;border-color: rgb(228, 230, 231);border-top: 0;border-left: 0;height: 50px; ">
+    
+    <p style="margin-left: 10%;margin-top:2%;font-size: 24px;color: rgb(141, 203, 112);">Email</p>
+    <input type="email" name="email" placeholder="   Enter Your Email" required style="margin-left: 10%;width: 80%;outline:none;border-radius: 5px;border-color: rgb(228, 230, 231);border-top: 0;border-left: 0;height: 50px; ">
+    
+    <p style="margin-left: 10%;margin-top:2%;font-size: 24px;color: rgb(141, 203, 112);">Message</p>
+    <textarea name="message" placeholder="   Type Your Message" required style="margin-left: 10%;width: 80%;outline:none;border-radius: 5px;border-color: rgb(228, 230, 231);border-top: 0;border-left: 0;height: 100px;"></textarea>
+    
+    <br>
+    <input type="checkbox" name="terms" required id="Terms" style="margin-left: 10%;margin-top: 2%;">
+    <label for="Terms" style="font-size: large;font-weight: 500;color: rgb(141, 203, 112);margin-top: -1.3%;margin-left: 1.5%;">I accept the Terms</label>
+    
+    <button type="submit" class="btn btn-primary" style="margin-left: 47%;width: 100px;block-size: 50px;margin-top: 5%;margin-right: 60%;margin-bottom: 2%;">Submit</button>
+    <a href="{{url_for('feedback_list')}}" class="all-feedbacks btn btn-secondary" style="margin-left: 82%;margin-top: -10%;" >All Feedbacks</a> 
+</form
+
+    <p style="margin-left: 10%;font-size: medium;margin-bottom: 5%;">By submitting, you agree to our <a href="{{url_for('termsandconditions')}}" style="text-decoration: none;">Terms and Conditions</a> and <a style="text-decoration: none;" href="{{url_for('privacyandpolicy')}}">Privacy Policy</a>.</p>
+
+</div>
+<footer>
+        <div class="bottom1">
+        <div class="c1">
+        <h2>Company</h2>
+        <br>
+        <a href="{{url_for('aboutus')}}" class="bottom-aboutus">About us</a>
+        <br><br>
+        <a href="#ref_feedback" class="bottom-feedback">Feedback</a>
+        </div>
+        
+        <div class="c2">
+        <h2>Employee</h2>
+        <br>
+        <a href="{{url_for('signup')}}" class="bottom-employee-portal">Employee Portal</a>
+        </div>
+        
+        <div class="c3">
+        <h2>Admin</h2>
+        <br>
+        <a href="{{url_for('login')}}" class="bottom-admin-portal">Admin Portal</a>
+        </div>
+
+        <div class="c4">
+        <h2>Subscribe To Updates</h2>
+        <p >Stay informed with the latest updates from LeaveTrack.</p>
+        <p style="margin-top: -4%;">Enter your email to subscribe.</p>
+        <input class="input-email" type="email" placeholder="    Enter your Email">
+        <button class="btn btn-primary subscribe">Subscribe</button>
+        </div>  
+        </div>
+        
+
+        <div class="bottom2">
+        <p class="bottom-logo">© 2025 Levo. All rights reserved.</p>
+        <a href="{{url_for('termsandconditions')}}" style="margin-left: 12%;" class="bottom-terms">Terms and Conditions</a>
+        <a href="{{url_for('privacyandpolicy')}}" style="margin-left: 1%;" class="bottom-privacy">Privacy Policy</a>
+        </div>
+        
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+
